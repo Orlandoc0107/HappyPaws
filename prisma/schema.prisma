@@ -1,0 +1,119 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model User {
+  id        String    @id @default(cuid())
+  username  String
+  password  String
+  firstName String
+  lastName  String
+  address   String
+  phone     String
+  dni       String
+  photo     String
+  email     String
+  role      Role      @default(CLIENT)
+  status    Status    @default(ACTIVE)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  pets              Pet[]
+  bookings          Booking[]        @relation("ClientBookings")
+  petSitterBookings Booking[]        @relation("PetSitterBookings")
+  reviewsReceived   Review[]         @relation("PetsitterReviews")
+  reviewsGiven      Review[]         @relation("ClientReviews")
+  petSitterServices PetSitterService[]
+}
+
+model Pet {
+  id          String  @id @default(cuid())
+  name        String
+  species     String
+  breed       String
+  age         Int
+  ownerId     String
+  owner       User    @relation(fields: [ownerId], references: [id])
+  bookings    Booking[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Service {
+  id        String    @id @default(cuid())
+  name      String
+  description String
+  price     Float
+  duration  Int
+  bookings  Booking[]
+  petSitterServices PetSitterService[]
+}
+
+model Booking {
+  id        String    @id @default(cuid())
+  petId     String
+  serviceId String
+  clientId  String
+  petSitterId String
+  date      DateTime
+  status    BookingStatus @default(PENDING)
+  
+  pet         Pet           @relation(fields: [petId], references: [id])
+  service     Service       @relation(fields: [serviceId], references: [id])
+  client      User          @relation("ClientBookings", fields: [clientId], references: [id])
+  petSitter   User          @relation("PetSitterBookings", fields: [petSitterId], references: [id])
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Review {
+  id          String  @id @default(cuid())
+  rating      Int
+  comment     String
+  clientId    String
+  petSitterId String
+  client      User    @relation("ClientReviews", fields: [clientId], references: [id])
+  petSitter   User    @relation("PetsitterReviews", fields: [petSitterId], references: [id])
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model PetSitterService {
+  id        String    @id @default(cuid())
+  petSitterId String
+  serviceId String
+  petSitter User     @relation(fields: [petSitterId], references: [id])
+  service   Service  @relation(fields: [serviceId], references: [id])
+}
+
+enum Role {
+  CLIENT
+  PETSITTER
+}
+
+enum Status {
+  ACTIVE
+  SUSPENDED
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}

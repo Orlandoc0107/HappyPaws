@@ -36,3 +36,22 @@ Este proyecto utiliza las siguientes tecnologías:
   <img src="https://seeklogo.com/images/P/prisma-logo-3805665B69-seeklogo.com.png" alt="Prisma" width="50"/> 
   <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL" width="50"/>
 </div>
+
+## Prisma
+
+```bash
+
+npm install @prisma/client @auth/prisma-adapter
+npm install prisma --save-dev
+
+npx prisma init
+
+npm exec prisma migrate dev
+
+npm exec prisma generate
+
+npx prisma db push
+
+npx prisma studio
+
+```
