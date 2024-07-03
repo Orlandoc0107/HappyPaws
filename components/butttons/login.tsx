@@ -11,21 +11,22 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 
 export default function Login() {
-    const { data: session } = useSession()
+    const { data: session } = useSession();
+    const firstLetter = session?.user?.data?.email?.charAt(0) as string;
     // 
     return (
         <div className="flex flex-row gap-2.5 justify-center items-center mr-4">
             <div className="flex gap-2">
                 <div className="flex gap-2 justify-center justify-items-center items-center">
                     <div className="flex gap-2 items-center">
-                        <Avatar className="w-14 h-14 sm:w-14 sm:h-14 lg:w-14 lg:h-14">
-                            <AvatarImage src={session?.user.photo || '/perfil/perfilusuario.png'} />
-                            <AvatarFallback>CN</AvatarFallback>
+                        <Avatar className="w-12 h-12 sm:w-12 sm:h-12 lg:w-12 lg:h-12">
+                            <AvatarImage src={session?.user.data.image || '/perfil/icon_paws.svg'} />
+                            <AvatarFallback className=" border-color6 border-2 text-[24px]">{firstLetter}</AvatarFallback>
                         </Avatar>
                     </div>
                     <div className="text-black self-center w-[198px] h-14 text-xl font-normal justify-items-center content-center">
-                        <p>
-                            {session?.user.firstName} {session?.user.lastName}
+                        <p className="text-[12px]">
+                            {session?.user.data.firstName || session?.user.data.email} {session?.user.data.lastName || null}
                         </p>
                     </div>
 

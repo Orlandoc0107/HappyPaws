@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from "next/image";
-import { LogoCopy } from "@/icons/icons";
+import { LogoCopy, IconoFigma, IconoGithub } from "@/icons/icons";
 import Link from 'next/link';
 
 export default function Footer() {
@@ -44,8 +44,8 @@ export default function Footer() {
           <Link href="#" className="text-orange-400 text-2xl font-medium mb-2">Contacto</Link>
           <Link href="#" className="text-black text-lg font-normal mb-1">+54 9 11 0000-0000</Link>
           <div className="flex space-x-2">
-            <div>Github</div>
-            <div>Figma</div>
+            <div><IconoGithub width={32}></IconoGithub></div>
+            <div><IconoFigma width={32}></IconoFigma></div>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import "./globals.css";
 import SessionProvider from "@/context/SessionAuthProvider"
 import { roboto } from "@/fonts/font";
@@ -19,9 +19,8 @@ export default function RootLayout({
   return (
     <SessionProvider>
       <html lang="en" className="bg-color7 z-0">
-      <body className={roboto.className}>{children}</body>
-    </html>
+        <body className={roboto.className}>{children}</body>
+      </html>
     </SessionProvider>
-    
   );
 }

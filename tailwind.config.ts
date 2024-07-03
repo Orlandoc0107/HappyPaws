@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -18,15 +18,20 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        "homeimagen": "url('/fondos/homeimagen.png')",
+        "fondo2": "url('/fondos/2.png')",
+        "fondo3": "url('/fondos/3.png')",
+      },
       colors: {
-        color1:"#0A6141",
-        color2:"#DF8B3F",
-        color3:"#FAFAFA",
-        color4:"#FFFFFF",
-        color5:"#25C389",
-        color6:"#CB6100",
-        color7:"#FAFAFA",
-        color8:"#FFFFFF80",
+        color1: "#0A6141",
+        color2: "#DF8B3F",
+        color3: "#FAFAFA",
+        color4: "#FFFFFF",
+        color5: "#25C389",
+        color6: "#CB6100",
+        color7: "#FAFAFA",
+        color8: "#FFFFFF80",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

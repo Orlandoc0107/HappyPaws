@@ -1,46 +1,21 @@
 import "next-auth";
-import NextAuth, { DefaultSession, DefaultUser } from "next-auth";
-import { JWT } from "next-auth/jwt";
-
+import { JwtPayload } from "jsonwebtoken";
 
 declare module "next-auth" {
-    interface Session {
-        user: {
-            id: string;
-            firstName: string;
-            lastName: string;
-            address: string;
-            phone: string;
-            dni: string;
-            photo: string;
-            email: string;
-            role: string;
-            status: string;
-            username: string;
-        } & DefaultSession["user"];
-    }
-
-    interface User {
+  interface Session {
+    user: {
+      token: string;
+      data: {
         id: string;
-        firstName: string;
-        lastName: string;
-        address: string;
-        phone: string;
-        dni: string;
-        photo: string;
-        email: string;
+        name: string | null;
+        username: string | null;
+        firstName: string | null;
+        lastName: string | null;
+        image: string | null;
+        email: string | null;
         role: string;
-        status: string;
-        username: string;
-    }
-}
-
-// Extiende la interfaz JWT predeterminada de next-auth
-declare module "next-auth/jwt" {
-    interface JWT {
-        id: string;
-        role: string;
-        status: string;
-        username: string;
-    }
+        exp: number;
+      };
+    };
+  }
 }

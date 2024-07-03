@@ -1,4 +1,5 @@
-'use client'
+'use client';
+
 import React from 'react';
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
@@ -9,7 +10,8 @@ import Login from "@/components/butttons/login";
 
 
 export default function Nav() {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
+  // const loading = status === "loading"
 
   if (session) {
     return (

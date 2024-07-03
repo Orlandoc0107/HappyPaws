@@ -3,7 +3,5 @@ node_modules
 /node_modules
 .next
 .env
-.env.local
 .env
-prisma/migrations/20240630141102_one/migration.sql
-prisma/migrations/migration_lock.toml
+
