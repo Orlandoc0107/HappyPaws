@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SessionProvider from "@/context/SessionAuthProvider"
 import { roboto } from "@/fonts/font";
+import { Toaster } from "@/components/ui/sonner";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
     <SessionProvider>
       <html lang="en" className="bg-color7 z-0">
         <body className={roboto.className}>{children}</body>
+        <Toaster />
       </html>
     </SessionProvider>
   );

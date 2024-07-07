@@ -322,3 +322,186 @@ export function LogoCopyVerde({
 
     )
 }
+
+// Logo HP verde
+export function LogoVerde({
+    width = 350,
+    height = 60,
+    className = ""
+}) {
+    return (
+        <div className={className}>
+            <Image 
+            width={width}
+            height={height}
+            src="/logo/GreenlogologinRegister.svg"
+            alt="Logo"
+            />
+        </div>
+
+    )
+}
+
+// icon sobre
+
+// Logo HP verde
+export function LogoSobre({
+    width = 350,
+    height = 60,
+    className = ""
+}) {
+    return (
+        <div className={className}>
+            <Image 
+            width={width}
+            height={height}
+            src="/iconos/auth_icons/mail.svg"
+            alt="Logo"
+            />
+        </div>
+
+    )
+}
+
+//Icon Acept
+
+export function iconAcept({
+    width = 350,
+    height = 60,
+    className = ""
+}) {
+    return (
+        <div className={className}>
+            <Image 
+            width={width}
+            height={height}
+            src="/iconos/auth_icons/Acept.svg"
+            alt="Logo"
+            />
+        </div>
+
+    )
+}
+
+// icon Cuadro
+
+export function IconCuadro({
+    width = 350,
+    height = 60,
+    className = ""
+}) {
+    return (
+        <div className={className}>
+            <Image 
+            width={width}
+            height={height}
+            src="/iconos/auth_icons/cuadro.svg"
+            alt="Logo"
+            />
+        </div>
+
+    )
+}
+
+// Icon Facebook
+
+export function IconFacebook({
+    width = 350,
+    height = 60,
+    className = ""
+}) {
+    return (
+        <div className={className}>
+            <Image 
+            width={width}
+            height={height}
+            src="/iconos/auth_icons/facebook.svg"
+            alt="Logo"
+            />
+        </div>
+
+    )
+}
+
+// icon Google
+
+export function IconGoogle({
+    width = 350,
+    height = 60,
+    className = ""
+}) {
+    return (
+        <div className={className}>
+            <Image 
+            width={width}
+            height={height}
+            src="/iconos/auth_icons/google.svg"
+            alt="Logo"
+            />
+        </div>
+
+    )
+}
+
+// Icon Key
+
+export function IconKey({
+    width = 350,
+    height = 60,
+    className = ""
+}) {
+    return (
+        <div className={className}>
+            <Image 
+            width={width}
+            height={height}
+            src="/iconos/auth_icons/key.svg"
+            alt="Logo"
+            />
+        </div>
+
+    )
+}
+
+// Icon ver Password
+
+export function IconPasswordOpen({
+    width = 350,
+    height = 60,
+    className = "",
+    onClick=() => {}
+}) {
+    return (
+        <div className={className} onClick={onClick}>
+            <Image 
+            width={width}
+            height={height}
+            src="/iconos/auth_icons/PasswordOpen.svg"
+            alt="Logo"
+            />
+        </div>
+
+    )
+}
+
+
+// Icon ocultar Password
+
+export function IconPasswordCloset({
+    width = 350,
+    height = 60,
+    className = "",
+    onClick=() => {}
+}) {
+    return (
+        <div className={className} onClick={onClick}>
+            <Image 
+            width={width}
+            height={height}
+            src="/iconos/auth_icons/PasswordCloset.svg"
+            alt="Logo"
+            />
+        </div>
+
+    )
+}

@@ -2,18 +2,23 @@ import prisma from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 import { hashPassword } from "@/lib/password"
 
-interface Data {
+interface DataRegister {
+    fistName: string;
+    lastName: string;
+    phone: string;
     email: string;
     password: string;
 }
 
 export async function POST(request: NextRequest) {
     try {
-        const data: Data = await request.json();
-        const { email, password } = data;
+        const data: DataRegister = await request.json();
+        const { fistName, lastName, phone, email, password } = data;
         // 
         const existingUser = await prisma.user.findFirst({
-            where: { email }
+            where: { 
+                email
+            }
         });
         // 
         if (existingUser) {
@@ -24,7 +29,10 @@ export async function POST(request: NextRequest) {
 
         await prisma.user.create({
             data:{
-                email,
+                firstName: data.fistName,
+                lastName: data.lastName,
+                phone: data.phone,
+                email: data.email,
                 password: hashedPassword,
             },
         });

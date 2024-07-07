@@ -10,7 +10,7 @@ interface InterfaceComoFunciona {
 
 export default function ComoFunciona() {
     return (
-        <div className="bg-color7 py-12">
+        <div id="comofunciona" className="bg-color7 py-12">
             <div className="text-center px-6 md:px-24">
                 <h1 className="text-black text-3xl md:text-[38px] font-medium  text-left">
                     ¿Cómo Funciona?

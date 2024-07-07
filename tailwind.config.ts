@@ -22,6 +22,8 @@ const config = {
         "homeimagen": "url('/fondos/homeimagen.png')",
         "fondo2": "url('/fondos/2.png')",
         "fondo3": "url('/fondos/3.png')",
+        "register":"url('/auth/registro.png')",
+        "login":"url('/auth/login.png')"
       },
       colors: {
         color1: "#0A6141",
